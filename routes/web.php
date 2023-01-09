@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\FrontendController;
+use App\Http\Controllers\Admin\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +23,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth','isAdmin'])->group(function(){
-    Route::get('/dashboard', function(){
-        return view('admin.dashboard');
-    });
+    Route::get('/dashboard',[FrontendController::class,'index'])->name('dashboard');
+
+    Route::get('categories',[CategoriesController::class,'index'])->name('categories');
+    Route::get('add-category',[CategoriesController::class,'add'])->name('addCategory');
+    Route::post('insert-category',[CategoriesController::class,'insert'])->name('insertCategory');
+    Route::get('edit-category/{id}',[CategoriesController::class,'edit'])->name('editCategory');
+    Route::put('update-category/{id}',[CategoriesController::class,'update'])->name('updateCategory');
+    Route::get('delete-category/{id}',[CategoriesController::class,'delete'])->name('deleteCategory');
+
+
 });

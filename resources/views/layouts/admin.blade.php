@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link href="../assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{{asset('admin/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('admin/css/material-dashboard.css')}}">
 
 </head>

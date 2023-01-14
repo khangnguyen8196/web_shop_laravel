@@ -34,9 +34,9 @@ class LoginController extends Controller
         {
             return redirect('dashboard')->with('status','Welcome to your dash board');
         }
-        elseif(Auth::user()->role_as=='0') //Normal or default User Login
+        elseif(Auth::user()->role_as=='0' ) //Normal or default User Login
         {
-            return redirect('/')-> with('status','Logged in successfully');
+            return redirect('/home')-> with('status','Logged in successfully');
         }
     }
     /**

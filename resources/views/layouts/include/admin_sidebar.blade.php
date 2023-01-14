@@ -13,18 +13,40 @@
                     <p>Dashboard</p>
                 </a>
                 </li>
+
                 <li class="nav-item ">
-                <a class="nav-link" href="{{url('categories')}}">
-                    <i class="material-icons">person</i>
-                    <p>Categories</p>
-                </a>
+                    <a class="nav-link" href="{{url('users')}}">
+                        <i class="material-icons">person</i>
+                        <p>List Users</p>
+                    </a>
                 </li>
+
                 <li class="nav-item ">
-                <a class="nav-link" href="{{url('add-category')}}">
-                    <i class="material-icons">content_paste</i>
-                    <p>Add Category</p>
-                </a>
+                    <a class="nav-link" href="{{url('categories')}}">
+                        <i class="material-icons">person</i>
+                        <p>Categories</p>
+                    </a>
+                    </li>
+                    <li class="nav-item ">
+                    <a class="nav-link" href="{{url('add-category')}}">
+                        <i class="material-icons">content_paste</i>
+                        <p>Add Category</p>
+                    </a>
                 </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{url('products')}}">
+                        <i class="material-icons">person</i>
+                        <p>Products</p>
+                    </a>
+                    </li>
+                    <li class="nav-item ">
+                    <a class="nav-link" href="{{url('add-product')}}">
+                        <i class="material-icons">content_paste</i>
+                        <p>Add Product</p>
+                    </a>
+                </li>
+            
             </ul>
         </div>
     </div>

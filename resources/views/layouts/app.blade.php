@@ -14,6 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!--Styles -->
+    <link rel="stylesheet" href="{{asset('frontend/fonts/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap5.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
 
@@ -82,7 +83,9 @@
     </div>
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script src="{{asset('frontend/js/bootstrap.bundle.js')}}" defer></script>
+    <script src="{{asset('frontend/js/bootstrap.bundle.js')}}" ></script>
+    <script src="{{asset('frontend/js/jquery-3.6.3.js')}}" ></script>
+    <script src="{{asset('frontend/js/js_auth.js')}}" ></script>
+
 </body>
 </html>

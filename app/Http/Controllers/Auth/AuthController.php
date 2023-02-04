@@ -45,17 +45,17 @@ class AuthController extends Controller
     { 
         // $credentials = $request->only('email', 'password');
         if (Auth::attempt([
-            'email' =>$request->input('emai'),
+            'email' =>$request->input('email'),
             'password' =>$request->input('password')
         ])) {
-            if(Auth::user()->role_as=='1') // 1= Admin Login
+            if(Auth::user()->role_id =='1') // 1= Admin Login
             {
                 return redirect('dashboard')->with('status','Welcome to your dash board');
             }
-            elseif(Auth::user()->role_as=='0' ) //Normal or default User Login
+            elseif(Auth::user()->role_id =='0' ) //Normal or default User Login
             {
                 return redirect()->intended('home')
-                        ->withSuccess('You have Successfully loggedin');
+                        ->withSuccess('You have Successfully logged in');
             }
            
         }
@@ -95,7 +95,7 @@ class AuthController extends Controller
     public function home()
     {
         if(Auth::check()){
-            return view('home');
+            return view('front-end.homepage.index');
         }
   
         return redirect("login")->withSuccess('Opps! You do not have access');

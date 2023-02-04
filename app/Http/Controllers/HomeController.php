@@ -23,8 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        if (view()->exists($request->path())) {
+            return view($request->path());
+        }
+        return abort(404);
+    }
+
+    public function root()
+    {
+        return view('index');
     }
 }

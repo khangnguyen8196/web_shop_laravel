@@ -1,4 +1,4 @@
-    @extends('layouts.app')
+    @extends('layouts.admin.master-without-nav')
     
     @section('content')
     <main class="login-form">
@@ -53,7 +53,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                            <a href="{{ route('forget.password.get') }}">Forgot Password</a>
                                         </label>
                                     </div>
                                 </div>

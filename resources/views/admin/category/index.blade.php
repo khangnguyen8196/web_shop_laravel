@@ -1,9 +1,12 @@
-@extends('layouts.admin')
+@extends('layouts.admin.master')
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Category List</h4>
+            <h3>
+                Category List
+            <a href="{{route('admin.category.get')}}" data-bs-target="#AddCAtegoryModal" class="btn btn-primary float-end btn-sm" id="addNewCate">Add Category</a>
+            </h3>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped">

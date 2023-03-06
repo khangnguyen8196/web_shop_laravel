@@ -9,7 +9,7 @@
                     <div class="card-header">Register</div>
                     <div class="card-body">
     
-                        <form action="{{ route('register.post') }}" method="POST">
+                        <form action="{{ route('admin.register.post') }}" method="POST">
                             @csrf
                             <div class="form-group row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
@@ -41,6 +41,15 @@
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <a href="{{ route('admin.login') }}">Return Login</a>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 offset-md-4">

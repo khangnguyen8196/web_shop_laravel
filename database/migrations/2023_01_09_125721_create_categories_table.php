@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name',255);
             $table->string('slug',255)->unique();
             $table->text('description');
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(1);
             $table->longText('content');
             $table->timestamps();
         });

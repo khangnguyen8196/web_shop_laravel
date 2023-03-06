@@ -41,26 +41,23 @@ class AuthController extends Controller
      *
      * @return response();
      */
-    public function postLogin(LoginRequest $request)
-    { 
-        // $credentials = $request->only('email', 'password');
-        if (Auth::attempt([
-            'email' =>$request->input('email'),
-            'password' =>$request->input('password')
-        ])) {
-            if(Auth::user()->role_id =='1') // 1= Admin Login
-            {
-                return redirect('dashboard')->with('status','Welcome to your dash board');
-            }
-            elseif(Auth::user()->role_id =='0' ) //Normal or default User Login
-            {
-                return redirect()->intended('home')
-                        ->withSuccess('You have Successfully logged in');
-            }
-           
+    public function postLogin(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $admin = User::attemptLoginAdmin($email, $password);
+
+        if (!$admin) {
+            return redirect('/admin/login')->with('error', 'Thông tin đăng nhập không chính xác.');
         }
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+
+        Auth::guard('admin')->login($admin);
+
+        return redirect('/admin/dashboard');
     }
+
+    
     
     /**
      * Write code on Method
@@ -73,7 +70,7 @@ class AuthController extends Controller
         $createUser = $this->create($data);
   
         $token = Str::random(64);
-  
+        
         UserVerify::create([
               'user_id' => $createUser->id, 
               'token' => $token
@@ -108,11 +105,13 @@ class AuthController extends Controller
      */
     public function create(array $data)
     {
-      return User::create([
+      $user = User::create([
         'name' => $data['name'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
+      $user->logActivity('registration', 'User registered successfully');
+      return $user;
     }
       
     /**
@@ -120,11 +119,15 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function logout() {
-        Session::flush();
-        Auth::logout();
-  
-        return Redirect('login');
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect(route('admin.login'));
     }
     /**
      * Write code on Method

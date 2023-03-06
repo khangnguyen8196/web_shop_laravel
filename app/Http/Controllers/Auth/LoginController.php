@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -28,17 +29,6 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-    protected function authenticated()
-    {
-        if(Auth::user()->role_id=='1') // 1= Admin Login
-        {
-            return redirect('dashboard')->with('status','Welcome to your dash board');
-        }
-        elseif(Auth::user()->role_id=='0' ) //Normal or default User Login
-        {
-            return redirect('/home')-> with('status','Logged in successfully');
-        }
-    }
     /**
      * Create a new controller instance.
      *

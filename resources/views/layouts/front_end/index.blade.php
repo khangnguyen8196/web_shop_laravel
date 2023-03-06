@@ -15,9 +15,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!--Styles -->
-    <link rel="stylesheet" href="{{asset('frontend/fonts/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/bootstrap5.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/custom.css')}}">
     @yield('css')
 </head>
 <body>

@@ -63,6 +63,16 @@ return [
         2 => 'InActive',
         3 => 'Delete'
     ],
+    'ROLE_ID' => [
+        'admin' => 1,
+        'customer' => 2,
+        // 'deleted' => 3,
+    ],
+    'ROLE_ID_TEXT' => [
+        1 => 'Admin',
+        2 => 'Customer',
+        // 3 => 'Delete'
+    ],
     'PRODUCT_DEFAULT_IDS' => [
         'product_1' => 1
     ],

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,6 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'referral_code',
+        'status',
         'role_id',
         'is_email_verified',
 
@@ -45,7 +48,18 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-   
+    ]; 
+    
+    public static function attemptLoginAdmin($email, $password)
+    {
+        $admin = static::where('email', $email)
+            ->first();
+    
+        if ($admin && Hash::check($password, $admin->password)) {
+            return $admin;
+        }
+    
+        return null;
+    }
+    
 }

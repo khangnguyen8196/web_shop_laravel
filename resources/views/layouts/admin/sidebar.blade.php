@@ -8,7 +8,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li class="nav-item active  ">
-                <a class="nav-link" href="{{route('dashboard')}}">
+                <a class="nav-link" href="{{route('admin.dashboard')}}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -32,7 +32,13 @@
                         <i class="material-icons">content_paste</i>
                         <p>Products</p>
                     </a>
-                </li>        
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{url('logs')}}">
+                        <i class="material-icons">content_paste</i>
+                        <p>Logs</p>
+                    </a>
+                </li>       
             </ul>
         </div>
     </div>

@@ -8,12 +8,7 @@
                 <div class="card">
                     <div class="card-header">Login</div>
                     <div class="card-body">
-                        <form action="" method="POST">
-                            {{-- @if($errors->any())
-                                <div class="alert alert-danger text-center">
-                                    Vui lòng kiểm tra lại thông tin
-                                </div>
-                            @endif --}}
+                        <form action="{{route('admin.login.post')}}" method="POST">
                             <div class="form-group row mb-3">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                 <div class="col-md-6">
